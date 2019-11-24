@@ -1,9 +1,4 @@
 FROM openjdk:8-jre-alpine
-RUN \
-# Update
-apt-get update -y && \
-# Install Java
-apt-get install default-jre -y
 
 RUN mvn clean install
 
