@@ -1,0 +1,30 @@
+server:
+  port: 8888
+
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+      show-sql: true
+      format_sql: true
+  cloud:
+    gcp:
+      project-id: true-server-259316
+      sql:
+        instance-connection-name: true-server-259316:europe-west3:stockdb
+        database-name: stockdb
+        enabled: true
+  datasource:
+    url: jdbc:postgresql://35.235.45.205:5432/postgres
+    username: postgres
+    password: stockdb
+    #datasource:
+    # url: jdbc:postgresql://google/stockdb?cloudSqlInstance=true-server-259316:europe-west3:stockdb&socketFactory=com.google.cloud.sql.postgres.SocketFactory
+    #  user: postgres
+    #  password: stockdb
+
+    # driver-class-name: org.postgresql.Driver
+    # initialization-mode: always
