@@ -1,3 +1,4 @@
+/*
 package com.stock.processor;
 
 
@@ -40,14 +41,17 @@ public class JpaConfiguration {
     @Autowired
     private Environment environment;
 
+*/
 /*    @Bean
     public DataSource dataSource() {
         String dataSourceFile = "/application.yml";
         HikariConfig config = new HikariConfig(dataSourceFile);
         return new HikariDataSource(config);
-    }*/
+    }*//*
 
 
+
+*/
 /*    @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws NamingException {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
@@ -81,9 +85,11 @@ public class JpaConfiguration {
         JpaTransactionManager txManager = new JpaTransactionManager();
         txManager.setEntityManagerFactory(emf);
         return txManager;
-    }*/
+    }*//*
+
 
 }
 
 
 
+*/

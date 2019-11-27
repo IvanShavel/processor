@@ -10,11 +10,7 @@ import javax.sql.DataSource;
 public class Run {
 
     public static void main(String[] args) {
-      ApplicationContext context =  SpringApplication.run(Run.class, args);
-
-      DataSource source = context.getBean(DataSource.class);
-        System.out.println(  source.toString()  );
-
+        ApplicationContext context = SpringApplication.run(Run.class, args);
 
     }
 
@@ -37,8 +33,6 @@ public class Run {
     password: root
 
     */
-
-
 
 
 }

@@ -1,26 +1,28 @@
 server:
   port: 8888
 
-spring:
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-    hibernate:
-      ddl-auto: none
-      show-sql: true
-      format_sql: true
-  cloud:
-    gcp:
-      project-id: true-server-259316
-      sql:
-        instance-connection-name: true-server-259316:europe-west3:stockdb
-        database-name: stockdb
-        enabled: true
-  datasource:
-    url: jdbc:postgresql://35.235.45.205:5432/postgres
-    username: postgres
-    password: stockdb
+#spring:
+#  jpa:
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+#    hibernate:
+#      ddl-auto: none
+#      show-sql: true
+#      format_sql: true
+#  cloud:
+#    gcp:
+#      project-id: true-server-259316
+#      sql:
+#        instance-connection-name: true-server-259316:europe-west3:stockdb
+#        database-name: stockdb
+#        enabled: true
+#  datasource:
+#    url: jdbc:postgresql://35.235.45.205:5432/postgres
+#    username: postgres
+#    password: stockdb
+
+
     #datasource:
     # url: jdbc:postgresql://google/stockdb?cloudSqlInstance=true-server-259316:europe-west3:stockdb&socketFactory=com.google.cloud.sql.postgres.SocketFactory
     #  user: postgres
@@ -28,3 +30,13 @@ spring:
 
     # driver-class-name: org.postgresql.Driver
     # initialization-mode: always
+
+iExCloudServer: https://sandbox.iexapis.com/stable/
+# https://sandbox.iexapis.com/stable/stock/aapl/company?token=Tsk_a29d14855d4c4ac5b8bc51a86ea05b44
+# https://sandbox.iexapis.com/stable/ref-data/symbols?token=Tsk_a29d14855d4c4ac5b8bc51a86ea05b44
+  #
+
+iExCloudSymbols: ref-data/symbols?token=
+
+iExCloudToken: Tsk_a29d14855d4c4ac5b8bc51a86ea05b44
+#pk_51dc0716d4f646d4bb8cad7e57f5bf4d
