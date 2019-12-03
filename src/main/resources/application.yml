@@ -40,3 +40,10 @@ iExCloudSymbols: ref-data/symbols?token=
 
 iExCloudToken: Tsk_a29d14855d4c4ac5b8bc51a86ea05b44
 #pk_51dc0716d4f646d4bb8cad7e57f5bf4d
+
+iExCloudPrice: stock/twtr/price?token=
+
+
+#prices
+#https://sandbox.iexapis.com/stable/stock/twtr/price?token=Tsk_a29d14855d4c4ac5b8bc51a86ea05b44
+
