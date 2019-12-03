@@ -1,5 +1,7 @@
 # Default ignored files
 /.idea/workspace.xml
 /.idea/
-/target/
 /processor.iml
+/target/classes/
+/target/maven-archiver/
+/target/maven-status/maven-compiler-plugin/
