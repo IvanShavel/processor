@@ -31,9 +31,9 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public long startSchedule(Request request) {
-        RequestSchedule schedule = new RequestSchedule(client,token, price);
+    /*    RequestSchedule schedule = new RequestSchedule(client,token, price);
         schedules.add(schedule);
-        schedule.sendRequest();
+        schedule.sendRequest();*/
         return 0;
     }
 
