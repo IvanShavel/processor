@@ -24,7 +24,8 @@ public class RequestControllerImpl implements RequestController {
     @Override
     public long startSchedule(Request request) {
 
-        Flux.interval(Duration.ofSeconds(3)).publishOn(Schedulers.elastic())
+        Flux.interval(Duration.ofSeconds(1))
+                .publishOn(Schedulers.elastic())
                 .doOnEach(po-> {
                     System.out.println(WebClient.create("https://sandbox.iexapis.com/stable/")
                             .get()
