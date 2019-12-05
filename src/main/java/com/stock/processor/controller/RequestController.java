@@ -11,10 +11,10 @@ public interface RequestController {
 
     @ApiOperation(value = "start")
     @PostMapping("/start")
-    public long startSchedule(Request request);
+    public void startSchedule(Request request);
 
     @ApiOperation(value = "stop")
     @GetMapping("/stop")
-    public boolean stopSchedule(long scheduleNumber);
+    public void stopSchedule(long scheduleNumber);
 
 }

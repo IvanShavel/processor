@@ -4,8 +4,8 @@ import com.stock.processor.dto.Request;
 
 public interface RequestService {
 
-    public long startSchedule(Request request);
+    public void startSchedule(Request request);
 
-    public boolean stopSchedule(long scheduleNumber);
+    public boolean stopSchedule(Request request);
 
 }

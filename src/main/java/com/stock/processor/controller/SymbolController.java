@@ -10,6 +10,6 @@ import java.util.List;
 public interface SymbolController {
 
     @GetMapping("/all")
-    public List<Symbol> getPositions();
+    public List<Symbol> getAllCompanies();
 
 }

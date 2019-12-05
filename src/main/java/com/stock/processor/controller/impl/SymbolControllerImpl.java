@@ -14,7 +14,7 @@ public class SymbolControllerImpl implements SymbolController {
     private final SymbolService symbolService;
 
     @Override
-    public List<Symbol> getPositions() {
+    public List<Symbol> getAllCompanies() {
         return symbolService.getAll();
     }
 }
