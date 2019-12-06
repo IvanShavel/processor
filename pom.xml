@@ -24,23 +24,25 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <swagger.version>2.9.2</swagger.version>
         <maven-jar-plugin.version>3.1.2</maven-jar-plugin.version>
+
+        <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
     </properties>
 
     <dependencies>
 
-        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-gcp-starter-data-datastore &ndash;&gt;
+                <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-gcp-starter-data-datastore -->
                 <dependency>
                     <groupId>org.springframework.cloud</groupId>
                     <artifactId>spring-cloud-gcp-starter-data-datastore</artifactId>
                     <version>1.2.0.RELEASE</version>
                 </dependency>
 
-                &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-gcp-data-datastore &ndash;&gt;
+                <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-gcp-data-datastore -->
                 <dependency>
                     <groupId>org.springframework.cloud</groupId>
                     <artifactId>spring-cloud-gcp-data-datastore</artifactId>
                     <version>1.2.0.RELEASE</version>
-                </dependency>-->
+                </dependency>
 
 
         <dependency>
@@ -83,6 +85,29 @@
             <groupId>io.projectreactor</groupId>
             <artifactId>reactor-test</artifactId>
         </dependency>
+
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-feign &ndash;&gt;
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+            <version>1.4.7.RELEASE</version>
+        </dependency>-->
+
+<!--        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>${spring-cloud.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-openfeign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>2.2.0.RELEASE</version>
+        </dependency>
+
 
 
         <!--        <dependency>

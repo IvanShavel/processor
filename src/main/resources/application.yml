@@ -2,13 +2,15 @@ server:
   port: 8888
 
 
-#spring:
-#  cloud:
-#    gcp:
-#      datastore:
-#        project-id: true-server-259316
+spring:
+  cloud:
+    gcp:
+      datastore:
+        project-id: true-server-259316
 
- # spring.cloud.gcp.datastore.project-id=<your-project-id>
+
+
+    # spring.cloud.gcp.datastore.project-id=<your-project-id>
   #spring.cloud.gcp.datastore.credentials.location=<datastore-specific-credentials>
   #spring.cloud.gcp.datastore.namespace=spring-demo
 

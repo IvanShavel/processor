@@ -15,6 +15,6 @@ public interface RequestController {
 
     @ApiOperation(value = "stop")
     @GetMapping("/stop")
-    public void stopSchedule(long scheduleNumber);
+    public void stopSchedule(Request request);
 
 }

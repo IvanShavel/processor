@@ -5,7 +5,6 @@ import com.stock.processor.dto.Request;
 import com.stock.processor.service.RequestService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.scheduler.Scheduler;
 import reactor.core.scheduler.Schedulers;
@@ -24,8 +23,8 @@ public class RequestControllerImpl implements RequestController {
     }
 
     @Override
-    public void stopSchedule(long scheduleNumber) {
-
+    public void stopSchedule(Request request) {
+        requestService.stopSchedule(request);
     }
 
 
@@ -33,11 +32,11 @@ public class RequestControllerImpl implements RequestController {
 
         Scheduler scheduler = Schedulers.elastic();
         scheduler.dispose();
-   Flux<Long> qqq=      Flux.interval(Duration.ofSeconds(10))
+        Flux<Long> qqq = Flux.interval(Duration.ofSeconds(10))
                 .publishOn(scheduler)
                 .doOnEach(po -> {
-                    System.out.println(po+ " time - "
-                            + LocalDateTime.now());
+                            System.out.println(po + " time - "
+                                    + LocalDateTime.now());
                     /*      System.out.println(WebClient.create("https://sandbox.iexapis.com/stable/")
                                     .get()
                                     .uri("stock/twtr/price?token=" + "Tsk_a29d14855d4c4ac5b8bc51a86ea05b44")
@@ -49,12 +48,12 @@ public class RequestControllerImpl implements RequestController {
                             );*/
                         }
                 )
-           .doOnError(q-> System.out.println("error"))
+                .doOnError(q -> System.out.println("error"))
                 .doFinally(q -> System.out.println("eend"));
 
         System.out.println("312312312312312");
 
-   qqq
+        qqq
                 .blockLast();
 
 

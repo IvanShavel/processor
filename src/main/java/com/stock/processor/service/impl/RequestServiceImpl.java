@@ -1,6 +1,7 @@
 package com.stock.processor.service.impl;
 
 import com.stock.processor.dto.Request;
+import com.stock.processor.repository.CompanyRepository;
 import com.stock.processor.schedule.Schedule;
 import com.stock.processor.schedule.ScheduleManager;
 import com.stock.processor.schedule.SchedulerFactory;
@@ -29,20 +30,18 @@ public class RequestServiceImpl implements RequestService {
     private String url;
     @Value("${iExCloudPrice}")
     private String price;
+    private final CompanyRepository companyRepository;
 
-    Map<String, List<ScheduleManager>> schedules = new HashMap<>();
+    private Map<String, List<ScheduleManager>> schedules = new HashMap<>();
 
-    Thread thread;
 
     @Override
     public void startSchedule(Request request) {
         request.getCompanyName()
                 .forEach(
                         companyName -> {
-                           // Thread
-                                    thread = new Thread(() -> create(request, companyName));
-                            thread.start();
-
+                            // Thread
+                            new Thread(() -> create(request, companyName)).start();
                         }
                 );
 
@@ -54,24 +53,42 @@ public class RequestServiceImpl implements RequestService {
                         .setInterval(request.getInterval())
                         .setTimeUnit(request.getTimeUnit())
                         .setTimer(schedulerFactory.getScheduler(request.getInterval(), request.getTimeUnit()))
-                        .setScheduler(Schedulers.elastic())
+                        .setScheduler(Schedulers
+                                .newElastic(companyName + " timeInterval "
+                                        + request.getInterval() + " unit "
+                                        + request.getTimeUnit()))
                         .setCompanyName(companyName)
                         .setClient(client)
+                , companyRepository
         );
-        scheduleManager.start();
-
         List<ScheduleManager> scheduleManagers = schedules.get(companyName);
         if (scheduleManagers == null) {
             List<ScheduleManager> managers = new ArrayList<>();
             managers.add(scheduleManager);
             schedules.put(companyName, managers);
+            scheduleManager.start();
         } else {
-            scheduleManagers.add(scheduleManager);
+            if (scheduleManagers
+                    .stream().noneMatch(manager ->
+                            manager.getSchedule().getInterval() == request.getInterval()
+                                    && manager.getSchedule().getTimeUnit().equals(request.getTimeUnit()))) {
+                scheduleManagers.add(scheduleManager);
+                scheduleManager.start();
+            }
         }
+
     }
 
     @Override
     public boolean stopSchedule(Request request) {
+
+        request.getCompanyName()
+                .forEach(companyName -> schedules
+                        .get(companyName)
+                        .removeIf(scheduleManager -> scheduleManager
+                                .stop(request.getInterval(), request.getTimeUnit())
+                        )
+                );
 
         return false;
     }
