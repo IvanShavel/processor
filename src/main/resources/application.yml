@@ -7,8 +7,8 @@ spring:
     gcp:
       datastore:
         project-id: true-server-259316
-        credentials:
-          location: file:.\src\main\resources\key.json
+#        credentials:
+#          location: file:.\src\main\resources\key.json
 
 
 
