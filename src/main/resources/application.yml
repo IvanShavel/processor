@@ -1,7 +1,6 @@
 server:
   port: 8888
 
-
 spring:
   cloud:
     gcp:
@@ -12,39 +11,6 @@ spring:
 
 
 
-    # spring.cloud.gcp.datastore.project-id=<your-project-id>
-  #spring.cloud.gcp.datastore.credentials.location=<datastore-specific-credentials>
-  #spring.cloud.gcp.datastore.namespace=spring-demo
-
-#spring:
-#  jpa:
-#    properties:
-#      hibernate:
-#        dialect: org.hibernate.dialect.PostgreSQLDialect
-#    hibernate:
-#      ddl-auto: none
-#      show-sql: true
-#      format_sql: true
-#  cloud:
-#    gcp:
-#      project-id: true-server-259316
-#      sql:
-#        instance-connection-name: true-server-259316:europe-west3:stockdb
-#        database-name: stockdb
-#        enabled: true
-#  datasource:
-#    url: jdbc:postgresql://35.235.45.205:5432/postgres
-#    username: postgres
-#    password: stockdb
-
-
-    #datasource:
-    # url: jdbc:postgresql://google/stockdb?cloudSqlInstance=true-server-259316:europe-west3:stockdb&socketFactory=com.google.cloud.sql.postgres.SocketFactory
-    #  user: postgres
-    #  password: stockdb
-
-    # driver-class-name: org.postgresql.Driver
-    # initialization-mode: always
 
 iExCloudServer: https://sandbox.iexapis.com/stable/
 # https://sandbox.iexapis.com/stable/stock/aapl/company?token=Tsk_a29d14855d4c4ac5b8bc51a86ea05b44
