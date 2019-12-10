@@ -2,7 +2,6 @@ package com.stock.processor.controller;
 
 import com.stock.processor.dto.Request;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -13,8 +12,5 @@ public interface RequestController {
     @PostMapping("/start")
     public void startSchedule(Request request);
 
-    @ApiOperation(value = "stop")
-    @GetMapping("/stop")
-    public void stopSchedule(Request request);
 
 }

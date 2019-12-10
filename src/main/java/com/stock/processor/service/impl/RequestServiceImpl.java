@@ -79,18 +79,6 @@ public class RequestServiceImpl implements RequestService {
 
     }
 
-    @Override
-    public boolean stopSchedule(Request request) {
 
-        request.getCompanyName()
-                .forEach(companyName -> schedules
-                        .get(companyName)
-                        .removeIf(scheduleManager -> scheduleManager
-                                .stop(request.getInterval(), request.getTimeUnit())
-                        )
-                );
-
-        return false;
-    }
 }
 

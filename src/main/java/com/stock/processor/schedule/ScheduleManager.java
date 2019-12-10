@@ -40,7 +40,7 @@ public class ScheduleManager {
                                 .setName(schedule.getCompanyName())
                                 .setPrice(price+"")
                                 .setLogo("logo");
-                                companyRepository.save(company);
+                           //     companyRepository.save(company);
                             }
                     ).blockLast();
         } catch (Exception e) {

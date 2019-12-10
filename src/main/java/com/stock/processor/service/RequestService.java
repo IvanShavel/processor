@@ -6,6 +6,4 @@ public interface RequestService {
 
     void startSchedule(Request request);
 
-    boolean stopSchedule(Request request);
-
 }
