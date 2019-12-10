@@ -25,24 +25,21 @@ public class RequestServiceImpl implements RequestService {
     private final SchedulerFactory schedulerFactory;
     private final IExCloudWebClient client;
     @Value("${iExCloudToken}")
+    private String prefix;
+    @Value("${iExCloudPrefix}")
     private String token;
-    @Value("${iExCloudSymbols}")
-    private String url;
+    @Value("${iExCloudLogo}")
+    private String logo;
     @Value("${iExCloudPrice}")
     private String price;
     private final CompanyRepository companyRepository;
-
     private Map<String, List<ScheduleManager>> schedules = new HashMap<>();
-
 
     @Override
     public void startSchedule(Request request) {
         request.getCompanyName()
                 .forEach(
-                        companyName -> {
-                            // Thread
-                            new Thread(() -> create(request, companyName)).start();
-                        }
+                        companyName -> new Thread(() -> create(request, companyName)).start()
                 );
 
     }
@@ -59,7 +56,7 @@ public class RequestServiceImpl implements RequestService {
                                         + request.getTimeUnit()))
                         .setCompanyName(companyName)
                         .setClient(client)
-                , companyRepository
+                , companyRepository,prefix, token, logo, price
         );
         List<ScheduleManager> scheduleManagers = schedules.get(companyName);
         if (scheduleManagers == null) {

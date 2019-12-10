@@ -11,22 +11,17 @@ spring:
         credentials:
           location: classpath:key.json
 
+iExCloudServer: https://cloud.iexapis.com/stable/
+#  //https://cloud.iexapis.com/stable/stock/aapl/quote/latestPrice?token=pk_51dc0716d4f646d4bb8cad7e57f5bf4d   !!!
+#  //https://cloud.iexapis.com/stable/stock/aapl/logo?token=pk_51dc0716d4f646d4bb8cad7e57f5bf4d !!!
+# ALL
+# // https://cloud.iexapis.com/stable/ref-data/symbols?token=pk_51dc0716d4f646d4bb8cad7e57f5bf4d
 
+iExCloudPrefix: stock/
 
+iExCloudPrice: /quote/latestPrice?token=
+iExCloudLogo: ref-data/symbols?token=
 
-iExCloudServer: https://sandbox.iexapis.com/stable/
-# https://sandbox.iexapis.com/stable/stock/aapl/company?token=Tsk_a29d14855d4c4ac5b8bc51a86ea05b44
-# https://sandbox.iexapis.com/stable/ref-data/symbols?token=Tsk_a29d14855d4c4ac5b8bc51a86ea05b44
-  #
+iExCloudAllSymbols: ref-data/symbols?token=
 
-iExCloudSymbols: ref-data/symbols?token=
-
-iExCloudToken: Tsk_a29d14855d4c4ac5b8bc51a86ea05b44
-#pk_51dc0716d4f646d4bb8cad7e57f5bf4d
-
-iExCloudPrice: stock/twtr/price?token=
-
-
-#prices
-#https://sandbox.iexapis.com/stable/stock/twtr/price?token=Tsk_a29d14855d4c4ac5b8bc51a86ea05b44
-
+iExCloudToken: pk_51dc0716d4f646d4bb8cad7e57f5bf4d

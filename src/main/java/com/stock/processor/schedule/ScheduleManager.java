@@ -6,7 +6,6 @@ import com.stock.processor.type.TimeUnit;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.reactive.function.client.WebClient;
 
 import java.time.LocalDateTime;
 
@@ -16,31 +15,39 @@ import java.time.LocalDateTime;
 public class ScheduleManager {
     private final Schedule schedule;
     private final CompanyRepository companyRepository;
+    private final String prefix;
+    private final String token;
+    private final String logo;
+    private final String price;
+
+
+    //https://cloud.iexapis.com/stable/stock/aapl/quote/latestPrice?token=pk_51dc0716d4f646d4bb8cad7e57f5bf4d
 
     public void start() {
         try {
             schedule.getTimer()
                     .publishOn(schedule.getScheduler())
                     .doOnEach(po -> {
-                      final   double price = WebClient.create("https://sandbox.iexapis.com/stable/")
-                                .get()
-                                .uri("stock/" + schedule.getCompanyName() + "/price?token=" + "Tsk_a29d14855d4c4ac5b8bc51a86ea05b44")
-                                .retrieve()
-                                .bodyToMono(Double.class)
-                                .block();
+                                double stockPrice = schedule.getClient().getWebClient()
+                                        .get()
+                                        .uri(prefix + schedule.getCompanyName() + price + token)
+                                        .retrieve()
+                                        .bodyToMono(Double.class)
+                                        .block();
 
-                                System.out.println(price
-                                        + " company is " + schedule.getCompanyName()
-                                        + " time is " + LocalDateTime.now()
-                                        + " scheduler " + schedule.getScheduler()
-                                        + " time interval " + schedule.getInterval()
-                                        + " time unit " + schedule.getTimeUnit()
-                                );
-                        Company company = new Company()
-                                .setName(schedule.getCompanyName())
-                                .setPrice(price+"")
-                                .setLogo("logo");
-                           //     companyRepository.save(company);
+                                String companyLogo = schedule.getClient().getWebClient()
+                                        .get()
+                                        .uri(prefix + schedule.getCompanyName() + logo + token)
+                                        .retrieve()
+                                        .bodyToMono(String.class)
+                                        .block();
+
+                                Company company = new Company()
+                                        .setName(schedule.getCompanyName())
+                                        .setPrice(stockPrice + "")
+                                        .setLogo(companyLogo);
+                        System.out.println(company);
+                               //     companyRepository.save(company);
                             }
                     ).blockLast();
         } catch (Exception e) {
@@ -53,13 +60,5 @@ public class ScheduleManager {
 
     }
 
-    public boolean stop(long interval, TimeUnit timeUnit) {
-        boolean isStopped = false;
-        if (schedule.getInterval() == interval && schedule.getTimeUnit().equals(timeUnit)) {
-            schedule.getScheduler().dispose();
-            isStopped = true;
-        }
-        return isStopped;
-    }
 
 }

@@ -21,7 +21,7 @@ public class SymbolServiceImpl implements SymbolService {
     private final IExCloudWebClient client;
     @Value("${iExCloudToken}")
     private String token;
-    @Value("${iExCloudSymbols}")
+    @Value("${iExCloudAllSymbols}")
     private String url;
 
     @Override
