@@ -10,18 +10,3 @@ spring:
         project-id: true-server-259316
         credentials:
           location: classpath:key.json
-
-iExCloudServer: https://cloud.iexapis.com/stable/
-#  //https://cloud.iexapis.com/stable/stock/aapl/quote/latestPrice?token=pk_51dc0716d4f646d4bb8cad7e57f5bf4d   !!!
-#  //https://cloud.iexapis.com/stable/stock/aapl/logo?token=pk_51dc0716d4f646d4bb8cad7e57f5bf4d !!!
-# ALL
-# // https://cloud.iexapis.com/stable/ref-data/symbols?token=pk_51dc0716d4f646d4bb8cad7e57f5bf4d
-
-iExCloudPrefix: stock/
-
-iExCloudPrice: /quote/latestPrice?token=
-iExCloudLogo: ref-data/symbols?token=
-
-iExCloudAllSymbols: ref-data/symbols?token=
-
-iExCloudToken: pk_51dc0716d4f646d4bb8cad7e57f5bf4d

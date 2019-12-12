@@ -5,13 +5,12 @@ import com.stock.processor.dto.Request;
 import com.stock.processor.service.RequestService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Flux;
-import reactor.core.scheduler.Scheduler;
-import reactor.core.scheduler.Schedulers;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
-
+/**
+ * RequestControllerImpl
+ *
+ * @author Ivan Shavel
+ */
 @RestController
 @AllArgsConstructor
 public class RequestControllerImpl implements RequestController {

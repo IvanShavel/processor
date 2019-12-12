@@ -6,8 +6,13 @@ import reactor.core.publisher.Flux;
 
 import java.time.Duration;
 
+/**
+ * TimerFactory - factory for creating timer by time interval and time unit
+ *
+ * @author Ivan Shavel
+ */
 @Component
-public class SchedulerFactory {
+public class TimerFactory {
 
     public Flux<Long> getScheduler(long time, TimeUnit timeUnit) {
         switch (timeUnit) {

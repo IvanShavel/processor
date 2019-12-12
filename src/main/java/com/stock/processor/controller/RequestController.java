@@ -8,12 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 
+/**
+ * RequestController - provides end-point for starting scheduled requests
+ *
+ * @author Ivan Shavel
+ */
 @RequestMapping(path = "/schedule")
 public interface RequestController {
 
-    @ApiOperation(value = "start")
+    @ApiOperation(value = "Start schedule")
     @PostMapping("/start")
     public void startSchedule(@Valid @RequestBody Request request);
-
 
 }
