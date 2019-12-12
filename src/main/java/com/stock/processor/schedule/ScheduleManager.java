@@ -65,6 +65,6 @@ public class ScheduleManager {
                 .setPrice(String.valueOf(stockPrice))
                 .setLogo(companyLogo);
         log.info(String.valueOf(company));
-        //     companyRepository.save(company);
+        companyRepository.save(company);
     }
 }
