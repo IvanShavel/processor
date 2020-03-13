@@ -1,4 +1,4 @@
-FROM openjdk:13-alpine
+FROM openjdk:13-jre-13.0.2_8-alpine
 VOLUME /tmp
 RUN mkdir /opt/stock
 WORKDIR /opt/stock
